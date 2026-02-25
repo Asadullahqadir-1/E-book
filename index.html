@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn proven strategies to overcome procrastination and boost your productivity. Download our free ebook today.">
+    <meta name="keywords" content="procrastination, productivity, self-help, ebook, motivation">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Overcome Procrastination - Free Ebook">
+    <meta property="og:description" content="Learn proven strategies to overcome procrastination and boost your productivity.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630?text=Overcome+Procrastination">
+    
+    <title>Overcome Procrastination - Free Ebook Guide</title>
+    <link rel="favicon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============== HEADER ============== -->
+<header class="header">
+    <div class="container">
+        <div class="header-content">
+            <h1 class="logo">ProduceHub</h1>
+            <nav class="nav">
+                <a href="#benefits" class="nav-link">Benefits</a>
+                <a href="#email-form" class="nav-link">Get Ebook</a>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<!-- ============== HERO SECTION ============== -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <h2 class="hero-headline">Stop Procrastinating, Start Achieving</h2>
+                <p class="hero-subtitle">Discover the proven strategies used by top performers to overcome procrastination and unlock your full potential. Download our free ebook today.</p>
+                <a href="#email-form" class="btn btn-primary">Download Free Ebook Now</a>
+            </div>
+            <div class="hero-image">
+                <div class="book-container">
+                    <img src="cover image for the book.jpg" alt="Procrastination Ebook Cover" class="ebook-mockup">
+                    <div class="book-shadow"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============== BENEFITS SECTION ============== -->
+<section id="benefits" class="benefits">
+    <div class="container">
+        <h2 class="section-title">What You'll Learn</h2>
+        <p class="section-subtitle">Master these proven techniques to reclaim your time and boost productivity</p>
+        
+        <div class="benefits-grid">
+            <!-- Benefit 1 -->
+            <div class="benefit-block">
+                <div class="benefit-icon">⚡</div>
+                <h3 class="benefit-title">Quick Wins</h3>
+                <p class="benefit-description">Learn simple, actionable techniques you can implement immediately to break the procrastination cycle.</p>
+            </div>
+
+            <!-- Benefit 2 -->
+            <div class="benefit-block">
+                <div class="benefit-icon">🧠</div>
+                <h3 class="benefit-title">Psychology Insights</h3>
+                <p class="benefit-description">Understand the mental patterns behind procrastination and how to rewire your brain for success.</p>
+            </div>
+
+            <!-- Benefit 3 -->
+            <div class="benefit-block">
+                <div class="benefit-icon">📈</div>
+                <h3 class="benefit-title">Proven Systems</h3>
+                <p class="benefit-description">Follow battle-tested frameworks used by successful entrepreneurs and high achievers globally.</p>
+            </div>
+
+            <!-- Benefit 4 -->
+            <div class="benefit-block">
+                <div class="benefit-icon">⏰</div>
+                <h3 class="benefit-title">Time Management</h3>
+                <p class="benefit-description">Master scheduling techniques that align with your natural energy patterns and work style.</p>
+            </div>
+
+            <!-- Benefit 5 -->
+            <div class="benefit-block">
+                <div class="benefit-icon">✨</div>
+                <h3 class="benefit-title">Long-term Success</h3>
+                <p class="benefit-description">Build sustainable habits that create lasting change in your productivity and personal growth.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============== EMAIL CAPTURE SECTION ============== -->
+<section id="email-form" class="email-section">
+    <div class="container">
+        <h2 class="section-title">Claim Your Free Ebook</h2>
+        <p class="section-subtitle">Join thousands who've transformed their productivity</p>
+        
+        <div class="form-wrapper">
+            <form id="captureForm" class="email-form" novalidate>
+                <!-- Honeypot field (anti-spam) -->
+                <input type="hidden" name="honeypot" id="honeypot" value="">
+                
+                <div class="form-group">
+                    <label for="name" class="form-label">Your Name *</label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        class="form-input" 
+                        placeholder="John Doe"
+                        required
+                        aria-label="Your name"
+                    >
+                    <span class="form-error" id="nameError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="form-label">Your Email *</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        class="form-input" 
+                        placeholder="you@example.com"
+                        required
+                        aria-label="Your email address"
+                    >
+                    <span class="form-error" id="emailError"></span>
+                </div>
+
+                <!-- Success Message (hidden by default) -->
+                <div id="successMessage" class="form-message success-message" style="display: none;">
+                    <p>✓ Success! Your ebook is downloading. Check your email for the link.</p>
+                </div>
+
+                <!-- Error Message (hidden by default) -->
+                <div id="errorMessage" class="form-message error-message" style="display: none;">
+                    <p id="errorText"></p>
+                </div>
+
+                <button type="submit" id="submitBtn" class="btn btn-primary btn-block">
+                    <span id="submitText">Get My Free Ebook</span>
+                    <span id="submitLoader" style="display: none;">Sending...</span>
+                </button>
+
+                <p class="form-note">No spam. Unsubscribe anytime.</p>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- ============== FINAL CTA SECTION ============== -->
+<section class="final-cta">
+    <div class="container">
+        <h2 class="cta-headline">Ready to Take Control of Your Time?</h2>
+        <p class="cta-subtitle">Download the complete guide now and start your transformation today.</p>
+        <a href="#email-form" class="btn btn-secondary">Download Free Ebook</a>
+    </div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2026 ProduceHub. All rights reserved. | Privacy Policy | Terms of Service</p>
+    </div>
+</footer>
+
+<!-- ============== SCRIPTS ============== -->
+<script src="script.js"></script>
+
+</body>
+</html>
