@@ -2,29 +2,29 @@
    GLOBAL STYLES & RESET
    ============================================ */
 :root {
-    /* Premium Color Palette - Light/Dark Blue */
-    --color-primary: #1E5AA8;
-    --color-primary-light: #4C8DD9;
-    --color-primary-dark: #0F2F5C;
-    --color-secondary: #BFD7FF;
-    --color-accent: #7FC8FF;
-    --color-accent-dark: #3FA5F3;
+    /* Premium Color Palette */
+    --color-primary: #1F4FBF;
+    --color-primary-light: #3B6EDC;
+    --color-primary-dark: #12306F;
+    --color-secondary: #A9C7FF;
+    --color-accent: #7CC0FF;
+    --color-accent-dark: #4A9BEA;
     --color-success: #52B788;
     --color-error: #D62828;
     
     /* Gradient Backgrounds */
-    --gradient-primary: linear-gradient(135deg, #1E5AA8 0%, #4C8DD9 100%);
-    --gradient-secondary: linear-gradient(135deg, #BFD7FF 0%, #9FC3FF 100%);
-    --gradient-accent: linear-gradient(135deg, #7FC8FF 0%, #3FA5F3 100%);
-    --gradient-dark: linear-gradient(135deg, #0F2F5C 0%, #1E5AA8 100%);
-    --gradient-light: linear-gradient(135deg, #F3F8FF 0%, #EAF2FF 100%);
+    --gradient-primary: linear-gradient(135deg, #1F4FBF 0%, #3B6EDC 100%);
+    --gradient-secondary: linear-gradient(135deg, #A9C7FF 0%, #7CC0FF 100%);
+    --gradient-accent: linear-gradient(135deg, #7CC0FF 0%, #4A9BEA 100%);
+    --gradient-dark: linear-gradient(135deg, #0D214F 0%, #12306F 100%);
+    --gradient-light: linear-gradient(135deg, #F2F6FF 0%, #EAF0FF 100%);
     
     /* Neutrals */
     --color-white: #FFFFFF;
-    --color-light-bg: #F3F8FF;
-    --color-light-gray: #D7E5FA;
-    --color-medium-gray: #6C86A8;
-    --color-dark-text: #0F2F5C;
+    --color-light-bg: #F2F6FF;
+    --color-light-gray: #D8E5FF;
+    --color-medium-gray: #6F88B8;
+    --color-dark-text: #0E1E3A;
     
     /* Typography */
     --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
@@ -49,11 +49,11 @@
     --radius-2xl: 20px;
     
     /* Shadows - Premium */
-    --shadow-sm: 0 2px 8px rgba(15, 47, 92, 0.08);
-    --shadow-md: 0 8px 24px rgba(15, 47, 92, 0.12);
-    --shadow-lg: 0 16px 48px rgba(15, 47, 92, 0.18);
-    --shadow-xl: 0 24px 64px rgba(15, 47, 92, 0.24);
-    --shadow-book: 0 20px 60px rgba(30, 90, 168, 0.3);
+    --shadow-sm: 0 2px 8px rgba(15, 40, 90, 0.08);
+    --shadow-md: 0 8px 24px rgba(15, 40, 90, 0.12);
+    --shadow-lg: 0 16px 48px rgba(15, 40, 90, 0.18);
+    --shadow-xl: 0 24px 64px rgba(15, 40, 90, 0.24);
+    --shadow-book: 0 20px 60px rgba(31, 79, 191, 0.3);
     
     /* Transitions */
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -383,7 +383,7 @@ p {
     right: -10%;
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, rgba(30, 90, 168, 0.12) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(91, 79, 153, 0.1) 0%, transparent 70%);
     border-radius: 50%;
     animation: float 6s ease-in-out infinite;
 }
@@ -395,7 +395,7 @@ p {
     left: -5%;
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, rgba(127, 200, 255, 0.12) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(247, 178, 178, 0.1) 0%, transparent 70%);
     border-radius: 50%;
     animation: float 8s ease-in-out infinite;
 }
@@ -418,7 +418,7 @@ p {
     font-size: 3.5rem;
     margin-bottom: var(--spacing-lg);
     line-height: 1.15;
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, #3D3659 0%, #5B4F99 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -468,7 +468,7 @@ p {
     transform: translateX(-50%);
     width: 80%;
     height: 30px;
-    background: radial-gradient(ellipse at center, rgba(30, 90, 168, 0.25) 0%, transparent 70%);
+    background: radial-gradient(ellipse at center, rgba(91, 79, 153, 0.2) 0%, transparent 70%);
     filter: blur(20px);
     border-radius: 50%;
 }
@@ -510,7 +510,7 @@ p {
     right: 0;
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, rgba(127, 200, 255, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(247, 178, 178, 0.08) 0%, transparent 70%);
     border-radius: 50%;
 }
 
@@ -518,7 +518,7 @@ p {
     text-align: center;
     font-size: 2.8rem;
     margin-bottom: var(--spacing-md);
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, #3D3659 0%, #5B4F99 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -584,11 +584,22 @@ p {
 }
 
 .benefit-icon {
-    font-size: 3.5rem;
+    width: 72px;
+    height: 72px;
     margin-bottom: var(--spacing-md);
     display: inline-block;
+    border-radius: 18px;
+    background: var(--gradient-secondary);
+    padding: 12px;
     transition: var(--transition);
     animation: bounce-subtle 2s ease-in-out infinite;
+}
+
+.benefit-icon img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
 }
 
 .benefit-block:hover .benefit-icon {
@@ -627,7 +638,7 @@ p {
     left: -100px;
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, rgba(30, 90, 168, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(91, 79, 153, 0.08) 0%, transparent 70%);
     border-radius: 50%;
     animation: float 8s ease-in-out infinite;
 }
@@ -642,7 +653,7 @@ p {
     position: relative;
     z-index: 2;
     animation: scaleIn 0.6s ease;
-    border: 1px solid rgba(30, 90, 168, 0.08);
+    border: 1px solid rgba(91, 79, 153, 0.05);
 }
 
 .email-form {
@@ -682,8 +693,8 @@ p {
 .form-input:focus {
     outline: none;
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(30, 90, 168, 0.2);
-    background-color: rgba(30, 90, 168, 0.03);
+    box-shadow: 0 0 0 3px rgba(91, 79, 153, 0.15);
+    background-color: rgba(91, 79, 153, 0.02);
 }
 
 .form-input::placeholder {
@@ -759,7 +770,7 @@ p {
     left: -100px;
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, rgba(127, 200, 255, 0.12) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 209, 102, 0.1) 0%, transparent 70%);
     border-radius: 50%;
     animation: float 8s ease-in-out infinite;
 }
@@ -771,7 +782,7 @@ p {
     right: -100px;
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, rgba(79, 141, 217, 0.14) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(247, 178, 178, 0.1) 0%, transparent 70%);
     border-radius: 50%;
     animation: float 10s ease-in-out infinite;
 }
