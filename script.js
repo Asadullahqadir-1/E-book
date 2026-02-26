@@ -369,11 +369,10 @@ const animationObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             // Element is visible in viewport
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('is-visible');
             
             // Optional: unobserve after animation completes
-            // animationObserver.unobserve(entry.target);
+            animationObserver.unobserve(entry.target);
         }
     });
 }, {
@@ -386,32 +385,36 @@ const animationObserver = new IntersectionObserver((entries) => {
  */
 function initScrollAnimations() {
     // Animate all benefit blocks
-    document.querySelectorAll('.benefit-block').forEach(block => {
-        block.style.opacity = '0';
-        block.style.transform = 'translateY(30px)';
+    document.querySelectorAll('.benefit-block').forEach((block, index) => {
+        block.classList.add('reveal');
+        block.style.transitionDelay = `${Math.min(index * 0.08, 0.32)}s`;
         animationObserver.observe(block);
     });
     
     // Animate form wrapper
     const formWrapper = document.querySelector('.form-wrapper');
     if (formWrapper) {
-        formWrapper.style.opacity = '0';
-        formWrapper.style.transform = 'translateY(30px)';
+        formWrapper.classList.add('reveal');
         animationObserver.observe(formWrapper);
     }
     
     // Animate section titles
     document.querySelectorAll('.section-title').forEach(title => {
-        title.style.opacity = '0';
-        title.style.transform = 'translateY(30px)';
+        title.classList.add('reveal');
         animationObserver.observe(title);
     });
     
     // Animate section subtitles
     document.querySelectorAll('.section-subtitle').forEach(subtitle => {
-        subtitle.style.opacity = '0';
-        subtitle.style.transform = 'translateY(30px)';
+        subtitle.classList.add('reveal');
         animationObserver.observe(subtitle);
+    });
+
+    // Animate final CTA
+    document.querySelectorAll('.cta-headline, .cta-subtitle').forEach((cta, index) => {
+        cta.classList.add('reveal');
+        cta.style.transitionDelay = `${Math.min(index * 0.12, 0.24)}s`;
+        animationObserver.observe(cta);
     });
 }
 
@@ -421,10 +424,10 @@ function initScrollAnimations() {
 function initParallaxEffect() {
     window.addEventListener('scroll', () => {
         const scrolled = window.pageYOffset;
-        const parallaxElements = document.querySelectorAll('.hero::before, .hero::after');
+        const parallaxElements = document.querySelectorAll('.hero-orb');
         
         parallaxElements.forEach((elem) => {
-            elem.style.transform = `translateY(${scrolled * 0.5}px)`;
+            elem.style.transform = `translateY(${scrolled * 0.08}px)`;
         });
     }, { passive: true });
 }

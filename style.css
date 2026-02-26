@@ -3,32 +3,32 @@
    ============================================ */
 :root {
     /* Premium Color Palette */
-    --color-primary: #1F4FBF;
-    --color-primary-light: #3B6EDC;
-    --color-primary-dark: #12306F;
-    --color-secondary: #A9C7FF;
-    --color-accent: #7CC0FF;
-    --color-accent-dark: #4A9BEA;
+    --color-primary: #0F6B6B;
+    --color-primary-light: #1F8F86;
+    --color-primary-dark: #0B4A4A;
+    --color-secondary: #F8D28A;
+    --color-accent: #FFB347;
+    --color-accent-dark: #E0892F;
     --color-success: #52B788;
     --color-error: #D62828;
     
     /* Gradient Backgrounds */
-    --gradient-primary: linear-gradient(135deg, #1F4FBF 0%, #3B6EDC 100%);
-    --gradient-secondary: linear-gradient(135deg, #A9C7FF 0%, #7CC0FF 100%);
-    --gradient-accent: linear-gradient(135deg, #7CC0FF 0%, #4A9BEA 100%);
-    --gradient-dark: linear-gradient(135deg, #0D214F 0%, #12306F 100%);
-    --gradient-light: linear-gradient(135deg, #F2F6FF 0%, #EAF0FF 100%);
+    --gradient-primary: linear-gradient(135deg, #0F6B6B 0%, #1F8F86 100%);
+    --gradient-secondary: linear-gradient(135deg, #F8D28A 0%, #FFB347 100%);
+    --gradient-accent: linear-gradient(135deg, #FFB347 0%, #E0892F 100%);
+    --gradient-dark: linear-gradient(135deg, #082B2B 0%, #0B4A4A 100%);
+    --gradient-light: linear-gradient(135deg, #F2FBF9 0%, #EAF6FF 100%);
     
     /* Neutrals */
     --color-white: #FFFFFF;
-    --color-light-bg: #F2F6FF;
-    --color-light-gray: #D8E5FF;
-    --color-medium-gray: #6F88B8;
-    --color-dark-text: #0E1E3A;
+    --color-light-bg: #F2FBF9;
+    --color-light-gray: #D6E7E4;
+    --color-medium-gray: #5C7A7A;
+    --color-dark-text: #0B2D2D;
     
     /* Typography */
-    --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    --font-display: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-primary: 'Manrope', 'Segoe UI', Arial, sans-serif;
+    --font-display: 'DM Serif Display', 'Times New Roman', serif;
     --font-size-base: 16px;
     --line-height-base: 1.6;
     
@@ -53,7 +53,7 @@
     --shadow-md: 0 8px 24px rgba(15, 40, 90, 0.12);
     --shadow-lg: 0 16px 48px rgba(15, 40, 90, 0.18);
     --shadow-xl: 0 24px 64px rgba(15, 40, 90, 0.24);
-    --shadow-book: 0 20px 60px rgba(31, 79, 191, 0.3);
+    --shadow-book: 0 20px 60px rgba(15, 107, 107, 0.3);
     
     /* Transitions */
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -75,7 +75,7 @@ body {
     font-size: var(--font-size-base);
     line-height: var(--line-height-base);
     color: var(--color-dark-text);
-    background-color: var(--color-white);
+    background: linear-gradient(180deg, #FBFEFD 0%, #F4FBF9 50%, #FFFFFF 100%);
     overflow-x: hidden;
     letter-spacing: 0.3px;
 }
@@ -171,6 +171,39 @@ body {
     }
 }
 
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        box-shadow: 0 12px 30px rgba(15, 107, 107, 0.25);
+    }
+    50% {
+        box-shadow: 0 18px 46px rgba(15, 107, 107, 0.4);
+    }
+}
+
+@keyframes floatSoft {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+    50% {
+        transform: translateY(-18px) translateX(8px);
+    }
+    100% {
+        transform: translateY(0) translateX(0);
+    }
+}
+
 /* ============================================
    CONTAINER & LAYOUT
    ============================================ */
@@ -209,7 +242,7 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    letter-spacing: -0.5px;
+    letter-spacing: 0.2px;
     cursor: pointer;
     transition: var(--transition);
 }
@@ -336,6 +369,11 @@ p {
     color: var(--color-white);
 }
 
+.hero .btn-primary,
+.final-cta .btn-secondary {
+    animation: glowPulse 3.8s ease-in-out infinite;
+}
+
 .btn-primary:hover {
     box-shadow: var(--shadow-xl);
     transform: translateY(-4px);
@@ -371,33 +409,37 @@ p {
    ============================================ */
 .hero {
     padding: var(--spacing-3xl) 0;
-    background: var(--gradient-light);
+    background: linear-gradient(120deg, #F4FBF9 0%, #EAF6FF 40%, #FFF6E8 100%);
+    background-size: 200% 200%;
     position: relative;
     overflow: hidden;
+    animation: gradientShift 14s ease infinite;
 }
 
-.hero::before {
-    content: '';
+.hero-orb {
     position: absolute;
-    top: -50%;
+    border-radius: 999px;
+    filter: blur(2px);
+    opacity: 0.6;
+    pointer-events: none;
+    animation: floatSoft 10s ease-in-out infinite;
+}
+
+.hero-orb--one {
+    top: -40%;
     right: -10%;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(91, 79, 153, 0.1) 0%, transparent 70%);
-    border-radius: 50%;
-    animation: float 6s ease-in-out infinite;
+    width: 520px;
+    height: 520px;
+    background: radial-gradient(circle, rgba(31, 143, 134, 0.18) 0%, transparent 70%);
 }
 
-.hero::after {
-    content: '';
-    position: absolute;
-    bottom: -10%;
-    left: -5%;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(247, 178, 178, 0.1) 0%, transparent 70%);
-    border-radius: 50%;
-    animation: float 8s ease-in-out infinite;
+.hero-orb--two {
+    bottom: -15%;
+    left: -8%;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle, rgba(255, 179, 71, 0.2) 0%, transparent 70%);
+    animation-duration: 12s;
 }
 
 .hero-grid {
@@ -418,7 +460,7 @@ p {
     font-size: 3.5rem;
     margin-bottom: var(--spacing-lg);
     line-height: 1.15;
-    background: linear-gradient(135deg, #3D3659 0%, #5B4F99 100%);
+    background: linear-gradient(135deg, #0B4A4A 0%, #1F8F86 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -468,7 +510,7 @@ p {
     transform: translateX(-50%);
     width: 80%;
     height: 30px;
-    background: radial-gradient(ellipse at center, rgba(91, 79, 153, 0.2) 0%, transparent 70%);
+    background: radial-gradient(ellipse at center, rgba(15, 107, 107, 0.2) 0%, transparent 70%);
     filter: blur(20px);
     border-radius: 50%;
 }
@@ -510,7 +552,7 @@ p {
     right: 0;
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, rgba(247, 178, 178, 0.08) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 179, 71, 0.08) 0%, transparent 70%);
     border-radius: 50%;
 }
 
@@ -518,11 +560,10 @@ p {
     text-align: center;
     font-size: 2.8rem;
     margin-bottom: var(--spacing-md);
-    background: linear-gradient(135deg, #3D3659 0%, #5B4F99 100%);
+    background: linear-gradient(135deg, #0B4A4A 0%, #1F8F86 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: fadeInDown 0.8s ease;
 }
 
 .section-subtitle {
@@ -532,7 +573,6 @@ p {
     max-width: 600px;
     margin: 0 auto var(--spacing-3xl);
     font-weight: 500;
-    animation: fadeInUp 0.8s ease 0.2s both;
 }
 
 .benefits-grid {
@@ -552,14 +592,7 @@ p {
     transition: var(--transition-long);
     position: relative;
     overflow: hidden;
-    animation: slideInUp 0.6s ease backwards;
 }
-
-.benefit-block:nth-child(1) { animation-delay: 0.1s; }
-.benefit-block:nth-child(2) { animation-delay: 0.2s; }
-.benefit-block:nth-child(3) { animation-delay: 0.3s; }
-.benefit-block:nth-child(4) { animation-delay: 0.4s; }
-.benefit-block:nth-child(5) { animation-delay: 0.5s; }
 
 .benefit-block::before {
     content: '';
@@ -626,7 +659,7 @@ p {
    ============================================ */
 .email-section {
     padding: var(--spacing-3xl) 0;
-    background: linear-gradient(135deg, var(--color-light-bg) 0%, #F5F2FB 100%);
+    background: linear-gradient(135deg, var(--color-light-bg) 0%, #FFF6E8 100%);
     position: relative;
     overflow: hidden;
 }
@@ -638,7 +671,7 @@ p {
     left: -100px;
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, rgba(91, 79, 153, 0.08) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(31, 143, 134, 0.12) 0%, transparent 70%);
     border-radius: 50%;
     animation: float 8s ease-in-out infinite;
 }
@@ -652,8 +685,14 @@ p {
     box-shadow: var(--shadow-lg);
     position: relative;
     z-index: 2;
-    animation: scaleIn 0.6s ease;
-    border: 1px solid rgba(91, 79, 153, 0.05);
+    border: 1px solid rgba(15, 107, 107, 0.08);
+    transition: var(--transition-long);
+}
+
+.form-wrapper:hover {
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-6px);
+    transition: var(--transition-long);
 }
 
 .email-form {
@@ -693,8 +732,8 @@ p {
 .form-input:focus {
     outline: none;
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(91, 79, 153, 0.15);
-    background-color: rgba(91, 79, 153, 0.02);
+    box-shadow: 0 0 0 3px rgba(15, 107, 107, 0.15);
+    background-color: rgba(15, 107, 107, 0.02);
 }
 
 .form-input::placeholder {
@@ -770,7 +809,7 @@ p {
     left: -100px;
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, rgba(255, 209, 102, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 179, 71, 0.16) 0%, transparent 70%);
     border-radius: 50%;
     animation: float 8s ease-in-out infinite;
 }
@@ -782,7 +821,7 @@ p {
     right: -100px;
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, rgba(247, 178, 178, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(31, 143, 134, 0.16) 0%, transparent 70%);
     border-radius: 50%;
     animation: float 10s ease-in-out infinite;
 }
@@ -793,7 +832,6 @@ p {
     margin-bottom: var(--spacing-md);
     position: relative;
     z-index: 2;
-    animation: fadeInDown 0.8s ease;
     font-weight: 900;
     letter-spacing: -1px;
 }
@@ -805,8 +843,19 @@ p {
     margin: 0 auto var(--spacing-lg);
     position: relative;
     z-index: 2;
-    animation: fadeInUp 0.8s ease 0.2s both;
     font-weight: 500;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* ============================================
@@ -899,10 +948,10 @@ p {
         font-size: 2rem;
     }
 
-    .hero::before,
-    .hero::after {
-        width: 200px;
-        height: 200px;
+    .hero-orb--one,
+    .hero-orb--two {
+        width: 220px;
+        height: 220px;
     }
 }
 
@@ -937,8 +986,8 @@ p {
         animation: fadeInUp 0.8s ease 0.4s both;
     }
     
-    .hero::before,
-    .hero::after {
+    .hero-orb--one,
+    .hero-orb--two {
         width: 300px;
         height: 300px;
     }
